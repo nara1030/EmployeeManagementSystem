@@ -8,7 +8,7 @@
 3. [설계](#설계)
 
 ## 요구사항
-<img src="./img/comtrue.png" width="600" height="250"></br>
+<img src="./img/comtrue.png" width="600" height="700"></br>
 
 ##### [목차로 이동](#목차)
 
