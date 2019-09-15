@@ -53,6 +53,7 @@
 		* 저장 형식: 메모장, 엑셀 등
 			* 단, 입력 ≠ 저장(종료 = 저장)
 	* 유틸 패키지 생성
+		* [static 멤버 사용](https://github.com/nara1030/ThisIsJava/blob/master/docs/etc/static_vs_non-static.md)
 * v_3.0
 	* 단위 테스트(예외 처리: 입력 등)
 
