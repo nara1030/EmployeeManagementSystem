@@ -56,6 +56,10 @@
 		* [static 멤버 사용](https://github.com/nara1030/ThisIsJava/blob/master/docs/etc/static_vs_non-static.md)
 * v_3.0
 	* 단위 테스트(예외 처리: 입력 등)
+* v_4.0
+	* 웹
+* v_5.0
+	* DB 연동(VM)
 
 ##### [목차로 이동](#목차)
 
