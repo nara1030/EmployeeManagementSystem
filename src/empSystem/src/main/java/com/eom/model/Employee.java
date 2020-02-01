@@ -1,5 +1,7 @@
 package com.eom.model;
 
+import com.eom.util.Format;
+
 public class Employee {
     // 직원 정보
     private final Integer empNo;  // 자동 증가
@@ -8,8 +10,13 @@ public class Employee {
     private String empRank;
     private String email;   // 정규표현식
 
-    // 기타
-    private static int empNoCounter = 0;
+    // 직원 번호 자동 증가(파일 목록 마지막 번호 초기화)
+    private static int empNoCounter;
+
+    // 직원 번호 초기화
+    public static void setEmpNoCounter(Integer lastEmpNo) {
+        empNoCounter = ++lastEmpNo;
+    }
 
     private Employee(Builder builder) {
         this.empNo = builder._empNo;
@@ -31,6 +38,15 @@ public class Employee {
         // 선택 인자
         private String _email;
 
+        // 초기화 시 생성자
+        public Builder(Integer _empNo, String _empName, String _phoneNum, String _empRank) {
+            this._empNo = _empNo;
+            this._empName = _empName;
+            this._phoneNum = _phoneNum;
+            this._empRank = _empRank;
+        }
+
+        // 직원 추가 시 생성자
         public Builder(String _empName, String _phoneNum, String _empRank) {
             this._empNo = empNoCounter++;
             this._empName = _empName;
@@ -65,13 +81,37 @@ public class Employee {
         this.email = email;
     }
 
-    // 상세/수정/삭제
-    public Integer getEmpNo() {
-        return empNo;
+    // 상세/수정/삭제 시 반환
+    public Employee findEmpByEmpNo(Integer empNo) {
+        if (this.empNo.equals(empNo)) {
+            return this;
+        }
+        return null;    // if문 제거 방법 고민
     }
 
-    // 출력
+    // 수정
+    public void modifyEmp(String empName, String phoneNum, String empRank, String email) {
+        this.setEmpName(empName);
+        this.setPhoneNum(phoneNum);
+        this.setEmpRank(empRank);
+        this.setEmail(email);
+    }
+
+    // 삭제
+    public void deleteEmp() {
+        this.setEmpName("-");
+        this.setPhoneNum("-");
+        this.setEmpRank("-");
+        this.setEmail("-");
+    }
+
+    // 콘솔 출력
     public void printEmp() {
-        System.out.println("직원번호: " + empNo + "\t" + "이름: " + empName + "\t" + "전화번호: " + phoneNum + "\t" + "직급: " + empRank + "\t" + "이메일: " + email);
+        System.out.println(empNo + "\t\t" + empName + "\t\t" + phoneNum + "\t\t" + empRank + "\t\t" + email);
+    }
+
+    // 파일 출력
+    public String storeEmp() {
+        return Format.changeNumberFormat(empNo) + "\t" + empName + "\t" + phoneNum + "\t" + empRank + "\t" + email;
     }
 }
