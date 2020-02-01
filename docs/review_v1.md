@@ -35,6 +35,7 @@
 ##### [목차로 이동](#목차)
 
 ## 참고
+* [Why can't we can't have static outer classes](https://stackoverflow.com/questions/18036458/why-cant-we-have-static-outer-classes)
 * [How can you use a protected constructor in Java?](https://www.quora.com/How-can-you-use-a-protected-constructor-in-Java)
 
 ##### [목차로 이동](#목차)

@@ -40,10 +40,7 @@
 
 ##### [목차로 이동](#목차)
 
-## 특이사항
+## 참고
 * [참고 코드](https://github.com/jeon7/employee_management)
-- - -
-* [Why can't we can't have static outer classes](https://stackoverflow.com/questions/18036458/why-cant-we-have-static-outer-classes)
-* [스트림 소개 및 병렬처리](https://sas-study.tistory.com/237)
 
 ##### [목차로 이동](#목차)
