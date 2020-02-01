@@ -1,6 +1,6 @@
 직원관리 프로그램
 =====
-모 회사 면접 문제로 나왔던 문제인데 언어를 공부하기 좋은 예제인 것 같아 기록한다.
+모 회사 면접 문제로 나왔던 문제인데 언어를 공부하기 좋은 예제인 것 같아 기록한다.  
 - - -
 ## 목차
 1. [Todo](#Todo)
@@ -8,6 +8,7 @@
 	* [Screenshots](#Screenshots)
 	* [UML](#UML)
 3. [참고](#참고)
+	* [코드설명](docs/review_v1.md)
 
 ## Todo
 
@@ -34,12 +35,12 @@
 ##### [목차로 이동](#목차)
 
 ### UML
-
+<img src="img/class_diagram.png" width="800" height="250"></br>
 
 ##### [목차로 이동](#목차)
 
 ## 특이사항
-* 참고 코드
+* [참고 코드](https://github.com/jeon7/employee_management)
 - - -
 * [Why can't we can't have static outer classes](https://stackoverflow.com/questions/18036458/why-cant-we-have-static-outer-classes)
 * [스트림 소개 및 병렬처리](https://sas-study.tistory.com/237)
