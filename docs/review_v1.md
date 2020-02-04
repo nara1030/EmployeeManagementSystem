@@ -17,6 +17,7 @@
 		* 클래스간 공유 가능하다는 오해 → ∵ static 멤버는 동일 클래스 모든 객체에 의해 공유
 		* 클래스간 공유 위해서는 static 필드도 메서드 통해 전달 필요
 	* 초기화/종료, CRUD 메소드 → static 선언 고민
+		* 클래스 분리 고민
 * 빌더 패턴
 	* 입력 시 공란(Null)으로 입력 방지(점층적 생성자 패턴 대안)
 	* 초기화 및 입력 시 다른 생성자 구현(오버로딩)
@@ -30,7 +31,21 @@
 	* https://okky.kr/article/38761
 	* https://javacan.tistory.com/entry/4
 	* https://sthyun.tistory.com/entry/java%EC%97%90%EC%84%9C-property%ED%8C%8C%EC%9D%BC-%EC%89%BD%EA%B2%8C-%EC%B0%BE%EA%B8%B0-ClassLoader
-* 초기화/종료 작업 분리
+* 로그 출력
+* 파일 출력  
+	```java
+	// 이어쓰기
+	//  - FileWriter 인자: false(cf. true: 기존 파일에 이어쓰기)
+	//  - write() → append()
+	BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false));
+	writer.append("직원번호" + "\t\t" + "이름" + "\t" + "전화번호" + "\t\t" + "직급" + "\t" + "이메일" + "\n");
+	```
+	* [Java - Write to File](https://www.baeldung.com/java-write-to-file)
+* 메인 메서드 실행 시 고민  
+	```java
+	System.out.println("프로그램을 시작합니다.");
+    System.out.println("메뉴 선택: ");  // print로 하면 안 찍힘
+	```
 
 ##### [목차로 이동](#목차)
 

@@ -37,6 +37,7 @@ public class EmpInit {
             }
 
             System.out.println("파일 로드 완료");
+            reader.close();
         } catch (IOException e) {
             System.out.println("파일 로드에 실패하였습니다.");
         }

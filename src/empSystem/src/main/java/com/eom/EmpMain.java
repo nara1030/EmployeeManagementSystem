@@ -4,6 +4,7 @@ import com.eom.common.EmpDestroy;
 import com.eom.common.EmpInit;
 import com.eom.common.EmpManagement;
 import com.eom.model.Employee;
+import com.eom.util.Validation;
 
 import java.util.Scanner;
 
@@ -39,10 +40,25 @@ public class EmpMain {
                     empName = scanner.nextLine();
                     System.out.println("전화번호: ");
                     phoneNum = scanner.nextLine();
+                    boolean flag = Validation.checkPhoneNumFormat(phoneNum);
+                    while (!flag) {
+                        System.out.println("양식에 맞게 다시 입력해주세요.");
+                        System.out.println("예: 000-0000-0000");
+                        phoneNum = scanner.nextLine();
+                        flag = Validation.checkPhoneNumFormat(phoneNum);
+                    }
+
                     System.out.println("직급: ");
                     empRank = scanner.nextLine();
                     System.out.println("이메일: ");
                     email = scanner.nextLine();
+                    flag = Validation.checkEmailFormat(email);
+                    while (!flag) {
+                        System.out.println("양식에 맞게 다시 입력해주세요.");
+                        System.out.println("예: test@gmail.com");
+                        email = scanner.nextLine();
+                        flag = Validation.checkEmailFormat(email);
+                    }
 
                     Employee employee = new Employee
                             .Builder(empName, phoneNum, empRank)
