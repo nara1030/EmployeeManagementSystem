@@ -46,6 +46,8 @@
 	System.out.println("프로그램을 시작합니다.");
     System.out.println("메뉴 선택: ");  // print로 하면 안 찍힘
 	```
+* 양방향 연관관계?
+	* Employee와 EmpInit
 
 ##### [목차로 이동](#목차)
 
