@@ -1,6 +1,7 @@
 package com.eom.model;
 
 import com.eom.util.Format;
+import com.eom.util.exception.EmpNoExcessException;
 
 public class Employee {
     // 직원 정보
@@ -47,7 +48,10 @@ public class Employee {
         }
 
         // 직원 추가 시 생성자
-        public Builder(String _empName, String _phoneNum, String _empRank) {
+        public Builder(String _empName, String _phoneNum, String _empRank) throws EmpNoExcessException {
+            if (empNoCounter == 999) {
+                throw new EmpNoExcessException("1000명 이상의 직원 추가는 불가합니다.");
+            }
             this._empNo = empNoCounter++;
             this._empName = _empName;
             this._phoneNum = _phoneNum;

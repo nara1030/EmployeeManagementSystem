@@ -5,6 +5,7 @@ import com.eom.common.EmpInit;
 import com.eom.common.EmpManagement;
 import com.eom.model.Employee;
 import com.eom.util.Validation;
+import com.eom.util.exception.EmpNoExcessException;
 
 import java.util.Scanner;
 
@@ -40,30 +41,37 @@ public class EmpMain {
                     empName = scanner.nextLine();
                     System.out.println("전화번호: ");
                     phoneNum = scanner.nextLine();
-                    boolean flag = Validation.checkPhoneNumFormat(phoneNum);
-                    while (!flag) {
-                        System.out.println("양식에 맞게 다시 입력해주세요.");
-                        System.out.println("예: 000-0000-0000");
-                        phoneNum = scanner.nextLine();
-                        flag = Validation.checkPhoneNumFormat(phoneNum);
-                    }
+//                    boolean flag = Validation.checkPhoneNumFormat(phoneNum);
+//                    while (!flag) {
+//                        System.out.println("양식에 맞게 다시 입력해주세요.");
+//                        System.out.println("예: 000-0000-0000");
+//                        phoneNum = scanner.nextLine();
+//                        flag = Validation.checkPhoneNumFormat(phoneNum);
+//                    }
 
                     System.out.println("직급: ");
                     empRank = scanner.nextLine();
                     System.out.println("이메일: ");
                     email = scanner.nextLine();
-                    flag = Validation.checkEmailFormat(email);
-                    while (!flag) {
-                        System.out.println("양식에 맞게 다시 입력해주세요.");
-                        System.out.println("예: test@gmail.com");
-                        email = scanner.nextLine();
-                        flag = Validation.checkEmailFormat(email);
-                    }
+//                    flag = Validation.checkEmailFormat(email);
+//                    while (!flag) {
+//                        System.out.println("양식에 맞게 다시 입력해주세요.");
+//                        System.out.println("예: test@gmail.com");
+//                        email = scanner.nextLine();
+//                        flag = Validation.checkEmailFormat(email);
+//                    }
 
-                    Employee employee = new Employee
-                            .Builder(empName, phoneNum, empRank)
-                            .email(email)
-                            .build();
+                    Employee employee = null;
+                    // throw 대신 try-catch문 사용
+                    try {
+                        employee = new Employee
+                                .Builder(empName, phoneNum, empRank)
+                                .email(email)
+                                .build();
+                    } catch (EmpNoExcessException e) {
+                        System.out.println("직원 추가 중 에러 발생: " + e.getMessage());
+                        e.printStackTrace();    // ∴ 프로그램 종료
+                    }
 
                     EmpManagement.addEmp(employee);
                     break;
