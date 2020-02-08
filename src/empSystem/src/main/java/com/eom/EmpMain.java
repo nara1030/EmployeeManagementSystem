@@ -1,11 +1,10 @@
 package com.eom;
 
-import com.eom.common.EmpDestroy;
-import com.eom.common.EmpInit;
-import com.eom.common.EmpManagement;
+import com.eom.lifeCycle.EmpDestroy;
+import com.eom.lifeCycle.EmpInit;
+import com.eom.lifeCycle.EmpManagement;
 import com.eom.model.Employee;
-import com.eom.util.Validation;
-import com.eom.util.exception.EmpNoExcessException;
+import com.eom.exception.EmpNoExcessException;
 
 import java.util.Scanner;
 

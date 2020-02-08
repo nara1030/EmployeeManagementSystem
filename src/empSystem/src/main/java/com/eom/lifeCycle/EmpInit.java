@@ -1,4 +1,4 @@
-package com.eom.common;
+package com.eom.lifeCycle;
 
 import com.eom.model.Employee;
 

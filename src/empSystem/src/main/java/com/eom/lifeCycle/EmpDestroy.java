@@ -1,6 +1,8 @@
-package com.eom.common;
+package com.eom.lifeCycle;
 
 import com.eom.model.Employee;
+import com.eom.util.print.PrintFile;
+import com.eom.util.print.Printable;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -9,6 +11,7 @@ import java.util.List;
 
 public class EmpDestroy {
     private static String filePath = "C:\\Users\\NT930QAA\\workspace-employeeManagement\\EmployeeManagementSystem\\emp.txt";    // 설정 파일 분리 필요
+    private static final Printable printable = new PrintFile();
 
     public static void storeFile(List<Employee> employees) {
         try {
@@ -19,7 +22,7 @@ public class EmpDestroy {
             writer.append("직원번호" + "\t\t" + "이름" + "\t" + "전화번호" + "\t\t" + "직급" + "\t" + "이메일" + "\n");
             writer.append("========================================");
             for (Employee employee : employees) {
-                writer.append("\n" + employee.storeEmp());
+                writer.append("\n" + printable.printEmp(employee));
             }
             System.out.println("파일 저장 완료");
             writer.close();

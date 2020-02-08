@@ -1,7 +1,6 @@
 package com.eom.model;
 
-import com.eom.util.Format;
-import com.eom.util.exception.EmpNoExcessException;
+import com.eom.exception.EmpNoExcessException;
 
 public class Employee {
     // 직원 정보
@@ -69,20 +68,45 @@ public class Employee {
     }
 
     // 수정 필요(단축키: alt + ins)
-    public void setEmpName(String empName) {
+    public Employee setEmpName(String empName) {
         this.empName = empName;
+        return this;
     }
 
-    public void setPhoneNum(String phoneNum) {
+    public Employee setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+        return this;
     }
 
-    public void setEmpRank(String empRank) {
+    public Employee setEmpRank(String empRank) {
         this.empRank = empRank;
+        return this;
     }
 
-    public void setEmail(String email) {
+    public Employee setEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    // 출력 위해 추가: 캡슐화 고민(∵ getter)
+    public Integer getEmpNo() {
+        return empNo;
+    }
+
+    public String getEmpName() {
+        return empName;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public String getEmpRank() {
+        return empRank;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     // 상세/수정/삭제 시 반환
@@ -91,31 +115,5 @@ public class Employee {
             return this;
         }
         return null;    // if문 제거 방법 고민
-    }
-
-    // 수정
-    public void modifyEmp(String empName, String phoneNum, String empRank, String email) {
-        this.setEmpName(empName);
-        this.setPhoneNum(phoneNum);
-        this.setEmpRank(empRank);
-        this.setEmail(email);
-    }
-
-    // 삭제
-    public void deleteEmp() {
-        this.setEmpName("-");
-        this.setPhoneNum("-");
-        this.setEmpRank("-");
-        this.setEmail("-");
-    }
-
-    // 콘솔 출력
-    public void printEmp() {
-        System.out.println(empNo + "\t\t" + empName + "\t\t" + phoneNum + "\t\t" + empRank + "\t\t" + email);
-    }
-
-    // 파일 출력
-    public String storeEmp() {
-        return Format.changeNumberFormat(empNo) + "\t" + empName + "\t" + phoneNum + "\t" + empRank + "\t" + email;
     }
 }
