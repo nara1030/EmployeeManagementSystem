@@ -37,6 +37,8 @@
 
 ### UML
 <img src="img/class_diagram.png" width="650" height="270"></br>
+* Employee 객체 기능 고민
+* Printable과 Employee 객체 관계 고민
 
 ##### [목차로 이동](#목차)
 
