@@ -13,7 +13,11 @@
 2. EmpInit 클래스는 자바 6 버전 스타일의 코드(try catch finally)  
 	→ try with resources
 3. 대부분의 클래스가 static 메소드(∵ static field)로 구현  
-	→ singleton
+	→ singleton  
+		```txt
+		1. instance 메소드 사용 가능 이유
+		2. final 선언
+		```
 	* 객체지향보다 절차지향적으로 구현되었음을 의미
 		* 다형성 등 객체지향이 가지는 변경의 유연성 없음
 	* 만약 static으로 사용 시, ArrayList보다 CopyOnWriteArrayList 권장
