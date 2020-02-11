@@ -5,10 +5,8 @@
 - - -
 ## 목차
 1. [Todo](#Todo)
-2. [구현](#구현)
-	* [Screenshots](#Screenshots)
+2. [참고](#참고)
 	* [UML](#UML)
-3. [참고](#참고)
 	* [코드설명](docs/review_v1.md)
 
 ## Todo
@@ -28,21 +26,12 @@
 
 ##### [목차로 이동](#목차)
 
-## 구현
-
-### Screenshots
-
+## 참고
+* [참고 코드](https://github.com/jeon7/employee_management)
 
 ##### [목차로 이동](#목차)
 
 ### UML
 <img src="img/class_diagram.png" width="650" height="270"></br>
-* Employee 객체 기능 고민
-* Printable과 Employee 객체 관계 고민
-
-##### [목차로 이동](#목차)
-
-## 참고
-* [참고 코드](https://github.com/jeon7/employee_management)
 
 ##### [목차로 이동](#목차)

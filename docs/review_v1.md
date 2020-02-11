@@ -75,6 +75,7 @@
 		* 글로벌 변수는 어디서든 참조할 수 있고 값을 변경할 수 있기 때문에 사용하지 않는 것이 좋다. 따라서 static은 public final을 붙여 상수로 사용하는 용도 외에는 자제하는 것이 좋다.
 		* final 키워드의 주의할 것은 `final Date endDate = new Date();`에서 endDate가 가리키는 객체가 바뀔 수 없다는 것이지, 객체의 내용은 바뀔 수 있다는 것이다([레퍼런스의 위험성](https://whiteship.tistory.com/100)).
 	* [Java Reference Object의 이해와 활용](http://blog.daum.net/_blog/BlogTypeView.do?blogid=04qAU&articleno=15309479&categoryId=452665&regdt=20100623131535)
+	* [싱글톤 패턴의 단점과 대안](https://okky.kr/article/673659)
 * [중첩 try-with-resources는 어떻게 작동할까?](https://multifrontgarden.tistory.com/192)
 * [Java 버전별 변경점](https://johngrib.github.io/wiki/java-enhancements/)
 * [JDK 14 기능정리](https://okky.kr/article/676912)
