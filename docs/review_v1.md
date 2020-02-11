@@ -7,17 +7,21 @@
 
 ## 피드백
 1. 논리적으로 Employee가 콘솔과 출력을 알아야 하는 이유 없음(Employee에 에 콘솔 출력 및 파일 출력 메소드 존재)  
+	```txt
 	→ 출력 기능 제거(∵ setter/getter)
+	```
 	* 이는 Employee가 외부 세계에 필요 이상으로 열려 있음을 의미
 	* 또한 파일 출력 메소드의 이름이 왜 storeEmp인가?(콘솔 출력 메소드의 경우 printEmp)
 2. EmpInit 클래스는 자바 6 버전 스타일의 코드(try catch finally)  
+	```txt
 	→ try with resources
+	```
 3. 대부분의 클래스가 static 메소드(∵ static field)로 구현  
-	→ singleton  
-		```txt
-		1. instance 메소드 사용 가능 이유
-		2. final 선언
-		```
+	```txt
+	→ singleton
+	  1. instance 메소드 사용 가능 이유
+	  2. final 선언
+	```
 	* 객체지향보다 절차지향적으로 구현되었음을 의미
 		* 다형성 등 객체지향이 가지는 변경의 유연성 없음
 	* 만약 static으로 사용 시, ArrayList보다 CopyOnWriteArrayList 권장
