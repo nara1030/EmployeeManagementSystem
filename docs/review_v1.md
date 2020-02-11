@@ -1,27 +1,28 @@
 직원관리 프로그램_v1
 =====
-* 코드 설명 및 피드백
-* 피드백 부분은 *이탤릭체*
-- - -
 ## 목차
-1. [코드](#코드)
-2. [참고](#참고)
+1. [피드백](#피드백)
+2. [기타](#기타)
+3. [참고](#참고)
 
-## 코드
+## 피드백
+1. 논리적으로 Employee가 콘솔과 출력을 알아야 하는 이유 없음(Employee에 에 콘솔 출력 및 파일 출력 메소드 존재) → 출력 기능 제거(∵ setter/getter)
+	* 이는 Employee가 외부 세계에 필요 이상으로 열려 있음을 의미
+	* 또한 파일 출력 메소드의 이름이 왜 storeEmp인가?(콘솔 출력 메소드의 경우 printEmp)
+2. EmpInit 클래스는 자바 6 버전 스타일의 코드(try catch finally) → try with resources
+3. 대부분의 클래스가 static 메소드(∵ static field)로 구현 → singleton
+	* 객체지향보다 절차지향적으로 구현되었음을 의미
+		* 다형성 등 객체지향이 가지는 변경의 유연성 없음
+	* 만약 static으로 사용 시, ArrayList보다 CopyOnWriteArrayList 권장
+
+##### [목차로 이동](#목차)
+
+## 기타
 * 객체 설계에 대한 고민: Employee
 	* [객체의 올바른 설계 조건](https://github.com/nara1030/TIL/blob/master/docs/lecture_list/code_spitz/s83_object1/object1_week1_ch00-ch01.md#%EA%B0%9D%EC%B2%B4%EC%99%80-%EC%84%A4%EA%B3%84)에는 자신의 상태를 스스로 관리하는 것이라 알고 있음
 		* 이는 [상태 데이터를 가지는 객체에서 데이터를 꺼내려 하지 말고 메시지를 보내라](https://github.com/nara1030/ThisIsJava/blob/master/docs/etc/double_dispatch.md#%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC%EC%BD%94%EC%8A%A4)는 말과 일맥상통
 	* 하지만 본인 데이터를 스스로 관리한다고 생각하니 객체에 기능이 과도해짐
 		* 예를 들어 출력(ex. 콘솔, 파일 등)의 경우 *논리적으로 생각해보면 Employee 클래스가 가져야 할 기능 아님*
-* static에 대한 고민: EmpManagement
-	* 직원 목록(List<Employee>)은 프로그램 실행 중 유지되어야 → static 필드 선언
-		* static 멤버 선언 시 *CopyOnWriteArrayList를 사용 권장*
-	* static 메소드에서 사용하기 위해 필드(ex. Printable) static 선언 → 인스턴스 멤버 선언 방법 찾기
-		* 컨테이너 호출 메서드 static 선언하진 않음
-	* static 멤버에 대해 배운 점
-		* 클래스간 공유 가능하다는 오해 → ∵ static 멤버는 동일 클래스 모든 객체에 의해 공유
-		* 클래스간 공유 위해서는 static 필드도 메서드 통해 전달 필요
-* *예전 스타일 코드에 대한 고민*: EmpInit
 * 빌더 패턴
 	* 입력 시 공란(Null)으로 입력 방지(점층적 생성자 패턴 대안)
 	* 초기화 및 입력 시 다른 생성자 구현(오버로딩)
@@ -62,5 +63,17 @@
 * [Why can't we can't have static outer classes](https://stackoverflow.com/questions/18036458/why-cant-we-have-static-outer-classes)
 * [How can you use a protected constructor in Java?](https://www.quora.com/How-can-you-use-a-protected-constructor-in-Java)
 * [UML 기본](https://geniusduck.tistory.com/entry/UML-%EA%B8%B0%EB%B3%B8%ED%8E%B8-%EA%B8%B0%EB%B3%B8-%ED%91%9C%EA%B8%B0-%ED%98%95%EC%8B%9D-%EB%B0%8F-%EA%B4%80%EA%B3%84%ED%91%9C%ED%98%84%EB%B2%95)
+* Singleton: static의 대안
+	* [왜 자바에서 static의 사용을 지양해야 하는가?](https://unabated.tistory.com/entry/%EC%99%9C-%EC%9E%90%EB%B0%94%EC%97%90%EC%84%9C-static%EC%9D%98-%EC%82%AC%EC%9A%A9%EC%9D%84-%EC%A7%80%EC%96%91%ED%95%B4%EC%95%BC-%ED%95%98%EB%8A%94%EA%B0%80)
+		1. 객체 지향적이지 않음(∵ 재사용 불가)
+		2. 멀티 스레드의 경우
+	* [객체 지향의 구멍 static](https://whiteship.tistory.com/134)
+		* static field는 this가 없다. instance method에는 숨겨진 파라미터로 this가 건네진다. 하지만 static method는 절차지향의 함수와 동일하므로 숨겨진 파라미터 this는 없다.
+		* 글로벌 변수는 어디서든 참조할 수 있고 값을 변경할 수 있기 때문에 사용하지 않는 것이 좋다. 따라서 static은 public final을 붙여 상수로 사용하는 용도 외에는 자제하는 것이 좋다.
+		* final 키워드의 주의할 것은 `final Date endDate = new Date();`에서 endDate가 가리키는 객체가 바뀔 수 없다는 것이지, 객체의 내용은 바뀔 수 있다는 것이다([레퍼런스의 위험성](https://whiteship.tistory.com/100)).
+	* [Java Reference Object의 이해와 활용](http://blog.daum.net/_blog/BlogTypeView.do?blogid=04qAU&articleno=15309479&categoryId=452665&regdt=20100623131535)
+* [중첩 try-with-resources는 어떻게 작동할까?](https://multifrontgarden.tistory.com/192)
+* [Java 버전별 변경점](https://johngrib.github.io/wiki/java-enhancements/)
+* [JDK 14 기능정리](https://okky.kr/article/676912)
 
 ##### [목차로 이동](#목차)
