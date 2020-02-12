@@ -32,6 +32,6 @@
 ##### [목차로 이동](#목차)
 
 ### UML
-<img src="img/class_diagram.png" width="850" height="270"></br>
+<img src="img/class_diagram.png" width="850" height="300"></br>
 
 ##### [목차로 이동](#목차)
