@@ -28,6 +28,25 @@
 		  1. instance 메소드 내부 사용 가능 이유
 		  2. final 선언
 		```
+4. ReadFile(Readable 인터페이스 구현체) 클래스에서 구체적인 파일 경로(`FILE_PATH`) 의존성 제거
+	* 처음엔 설정 파일로 파일 경로를 분리하려고 했으나 실패한 후 파일 경로에 직접적으로 의존하는 클래스(ex. TxTResource)를 만들어 해결 시도
+	* 조언 받은 것은 변수를 메소드를 통해 제거함으로써 의존성 제거(→ 메소드가 파일명 알고 있으므로 더 개선 가능)  
+		```java
+		public class ReadFile implements Readable {
+			/** 
+			 * private static final String FILE_PATH = "...";
+			 *
+			 * public ReadFile() throws IOException {
+			 *	reader = new BufferedReader(new FileReader(FILE_PATH));
+			 * }
+			 */
+			 
+			 public ReadFile(String filePath) throws IOException {
+			 }
+		}
+		```
+5. 추가 예정.
+	* https://github.com/johngrib/EmployeeManagementSystem/pulls
 
 ##### [목차로 이동](#목차)
 

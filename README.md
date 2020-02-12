@@ -5,9 +5,9 @@
 - - -
 ## 목차
 1. [Todo](#Todo)
-2. [참고](#참고)
+2. [구현](#구현)
 	* [UML](#UML)
-	* [코드설명](docs/review_v1.md)
+	* [참고](참고)
 
 ## Todo
 
@@ -26,12 +26,21 @@
 
 ##### [목차로 이동](#목차)
 
-## 참고
-* [참고 코드](https://github.com/jeon7/employee_management)
+## 구현
+초기 요구사항 구현한 것이 v_1이고 이후 요구사항을 추가해 수정·반영한다.
+
+* [v_1](docs/review_v1.md)
+* v_2
 
 ##### [목차로 이동](#목차)
 
 ### UML
 <img src="img/class_diagram.png" width="850" height="300"></br>
+
+##### [목차로 이동](#목차)
+
+### 참고
+* [ex_1](https://github.com/jeon7/employee_management)
+* [ex_2](https://github.com/GentleDot/temp)
 
 ##### [목차로 이동](#목차)
