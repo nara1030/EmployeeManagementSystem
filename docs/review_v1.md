@@ -41,6 +41,7 @@
 	* 입력 시 공란(Null)으로 입력 방지(점층적 생성자 패턴 대안)
 	* 초기화 및 입력 시 다른 생성자 구현(오버로딩)
 		* 초기화 시 public 고민(∵ 외부 공개 불필요)
+	* 생성자 오버라이딩 불가?
 * 스트림 ≠ Loop
 	* https://www.popit.kr/java8-stream%EC%9D%80-loop%EA%B0%80-%EC%95%84%EB%8B%88%EB%8B%A4/
 	* https://homoefficio.github.io/2016/06/26/for-loop-%EB%A5%BC-Stream-forEach-%EB%A1%9C-%EB%B0%94%EA%BE%B8%EC%A7%80-%EB%A7%90%EC%95%84%EC%95%BC-%ED%95%A0-3%EA%B0%80%EC%A7%80-%EC%9D%B4%EC%9C%A0/
