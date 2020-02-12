@@ -7,8 +7,7 @@ import com.eom.util.print.Printable;
 public class EmpManagement {
     private final Printable printable;
 
-    // 출력 소스 초기화(현재: Console)
-    // But EmpManagement 클래스 자체가 콘솔 종속 문제(∵ System.out.println)
+    // 출력 소스 초기화
     public EmpManagement(Printable printable) {
         this.printable = printable;
     }
@@ -19,18 +18,22 @@ public class EmpManagement {
     }
 
     // 직원 목록
-    // console에 대해 강한 결합
     public void printEmp() {
-        System.out.println("직원번호" + "\t\t" + "이름" + "\t\t" + "전화번호" + "\t\t" + "직급" + "\t\t" + "이메일");
-        System.out.println("========================================");
-        EmployeeList.getEmployeeList().stream().forEach(employee -> System.out.println(printable.printEmp(employee)));
+        printable.printEmp();
+        EmployeeList.getEmployeeList().stream().
+                forEach(employee -> {
+                    printable.printEmp(employee);
+                });
     }
 
     // 직원 상세
     public void printEmpDetail(Integer empNo) {
+        printable.printEmp();
         EmployeeList.getEmployeeList().stream()
                 .filter(employees -> employees.findEmpByEmpNo(empNo) != null)
-                .forEach(employee -> System.out.println(printable.printEmp(employee)));
+                .forEach(employee -> {
+                    printable.printEmp(employee);
+                });
     }
 
     // 직원 수정
