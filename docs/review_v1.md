@@ -53,8 +53,8 @@
 				final URL resource = EmpMain.class.getResource("/emp.txt");	// resources/emp.txt
 				System.out.println(Paths.get(resource.toURI()).toAbsolutePath().toString());
 				// → C:\Users\NT930QAA\IdeaProjects\empSystem\build\resources\main\emp.txt
-				// 읽어들어야 되는 경로(C:\Users\NT930QAA\IdeaProjects\empSystem\src\main\resources\emp.txt)와 다름에도
-				// 불구하고 왜 제대로 읽히지?(출력은 예상대로 안 됨)
+				// 읽어들어야 되는 경로(C:\Users\NT930QAA\IdeaProjects\empSystem\src\main\resources\emp.txt)와
+				// 다름에도 불구하고 왜 제대로 읽히지?(출력은 예상대로 안 됨)
 				```
 5. 추가 예정.
 	* https://github.com/johngrib/EmployeeManagementSystem/pulls
