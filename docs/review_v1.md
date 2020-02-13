@@ -34,6 +34,28 @@
 			 }
 		}
 		```
+	* 파일 경로 구하는 메소드 위치는 ReadFile일 필요 없음(∵ PrintFile)
+		* https://whitecold89.tistory.com/9
+		* https://devyongsik.tistory.com/171
+		* https://unabated.tistory.com/entry/ClassgetResource-vs-ClassLoadergetResource
+		* 추후
+			1. 어디다 메소드 배치할지에 대한 고민
+			2. 메소드가 직접 파일명 의존하는 부분 → 프로퍼티 파일?
+			3. getResource() 반환 결과에 대한 의문  
+				```java
+				/*
+				 * EmpMain: empSystem/src/main/java/com/eom/EmpMain
+				 */
+				System.out.println(EmpMain.class.getResource(""));
+				// → file:/C:/Users/NT930QAA/IdeaProjects/empSystem/build/classes/java/main/com/eom/
+				System.out.println(EmpMain.class.getResource("/"));
+				// → file:/C:/Users/NT930QAA/IdeaProjects/empSystem/build/classes/java/main/
+				final URL resource = EmpMain.class.getResource("/emp.txt");	// resources/emp.txt
+				System.out.println(Paths.get(resource.toURI()).toAbsolutePath().toString());
+				// → C:\Users\NT930QAA\IdeaProjects\empSystem\build\resources\main\emp.txt
+				// 읽어들어야 되는 경로(C:\Users\NT930QAA\IdeaProjects\empSystem\src\main\resources\emp.txt)와 다름에도
+				// 불구하고 왜 제대로 읽히지?(출력은 예상대로 안 됨)
+				```
 5. 추가 예정.
 	* https://github.com/johngrib/EmployeeManagementSystem/pulls
 
