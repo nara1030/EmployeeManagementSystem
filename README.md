@@ -32,6 +32,10 @@
 * [v_1](docs/review_v1.md)
 * v_2
 
+- - -
+* [메신저 만들기_1](http://www.bsidesoft.com/?p=3166)
+* [메신저 만들기_2](https://www.bsidesoft.com/?p=3297)
+
 ##### [목차로 이동](#목차)
 
 ### UML
