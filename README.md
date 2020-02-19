@@ -30,7 +30,7 @@
 초기 요구사항 구현한 것이 v_1이고 이후 요구사항을 추가해 수정·반영한다.
 
 * [v_1](docs/review_v1.md)
-* v_2
+* [v_2](docs/review_v2.md)
 
 - - -
 * [메신저 만들기_1](http://www.bsidesoft.com/?p=3166)
