@@ -43,8 +43,8 @@
 		* [Java Properties file examples](https://mkyong.com/java/java-properties-file-examples/)
 		* 추후
 			1. 어디다 메소드 배치할지에 대한 고민
-			2. 메소드가 직접 파일명 의존하는 부분 → 프로퍼티 파일?
-			3. getResource() 반환 결과에 대한 의문  
+			2. 메소드가 직접 파일명 의존하는 부분 → 프로퍼티 파일 이용 분리
+			3. getResource() 반환 결과에 대한 의문 → 프로젝트 내부에 데이터 파일 위치시키는 것 비권장  
 				```java
 				/*
 				 * EmpMain: empSystem/src/main/java/com/eom/EmpMain
@@ -97,6 +97,9 @@
 
 - - -
 
+* 자바 enum ≠ 타 언어의 enum
+	* 이펙티브 자바 3판 참고
+* 프로젝트 시작 시 메뉴 두 번 넣어야 동작
 * 파일 존재 안할 시 에러 발생 → Optional
 * 로그 출력
 * 파일 출력  
