@@ -38,6 +38,9 @@
 		* https://whitecold89.tistory.com/9
 		* https://devyongsik.tistory.com/171
 		* https://unabated.tistory.com/entry/ClassgetResource-vs-ClassLoadergetResource
+		* [How to Load Resources from Classpath in Java with Example](https://javarevisited.blogspot.com/2014/07/how-to-load-resources-from-classpath-in-java-example.html)
+		* [open resource with relative path in java](https://stackoverflow.com/questions/573679/open-resource-with-relative-path-in-java)
+		* [Java Properties file examples](https://mkyong.com/java/java-properties-file-examples/)
 		* 추후
 			1. 어디다 메소드 배치할지에 대한 고민
 			2. 메소드가 직접 파일명 의존하는 부분 → 프로퍼티 파일?
@@ -56,8 +59,11 @@
 				// 읽어들어야 되는 경로(C:\Users\NT930QAA\IdeaProjects\empSystem\src\main\resources\emp.txt)와
 				// 다름에도 불구하고 왜 제대로 읽히지?(출력은 예상대로 안 됨)
 				```
-5. 추가 예정.
-	* https://github.com/johngrib/EmployeeManagementSystem/pulls
+5. [To be continued](https://github.com/johngrib/EmployeeManagementSystem/pulls)
+	1. 데이터 파일 경로를 ReadFile에서 분리하라
+	2. 메소드를 적절히 추출하여 메뉴를 단순하게 고쳐라
+	3. 변수를 선언하는 곳과 사용하는 곳의 거리를 좁혀라
+	4. 메뉴의 표현을 분리하라
 
 ##### [목차로 이동](#목차)
 
@@ -83,9 +89,15 @@
 	* https://javacan.tistory.com/entry/4
 	* https://sthyun.tistory.com/entry/java%EC%97%90%EC%84%9C-property%ED%8C%8C%EC%9D%BC-%EC%89%BD%EA%B2%8C-%EC%B0%BE%EA%B8%B0-ClassLoader
 	* 파일경로로 파일 식별하는 것에 대한 고민
+* [자바 버전 업데이트](https://github.com/HomoEfficio/dev-tips/blob/master/IntelliJ%20-%20Gradle%EC%9D%98%20%EC%9E%90%EB%B0%94%20%EB%B2%84%EC%A0%84%20%EC%84%A4%EC%A0%95.md): 8 → 11(`List.of()`)
+	* [Java List - List in Java](https://www.journaldev.com/11444/java-list)
+	* [Java 11 - Convert Collection to Array](https://www.dariawan.com/tutorials/java/java-11-convert-collection-array/)
+	* [Java 11 Tutorial](https://winterbe.com/posts/2018/09/24/java-11-tutorial/)
+	* [From Java 8 to Java 11](https://codete.com/blog/java-8-java-11-quick-guide/)
 
 - - -
 
+* 파일 존재 안할 시 에러 발생
 * 로그 출력
 * 파일 출력  
 	```java
@@ -101,7 +113,7 @@
 	System.out.println("프로그램을 시작합니다.");
     System.out.println("메뉴 선택: ");  // print로 하면 안 찍힘
 	```
-
+	
 ##### [목차로 이동](#목차)
 
 ## 참고
