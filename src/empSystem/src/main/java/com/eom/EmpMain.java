@@ -11,6 +11,7 @@ import com.eom.util.print.PrintFile;
 import com.eom.util.read.ReadFile;
 import com.eom.util.read.Readable;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -153,24 +154,15 @@ public class EmpMain {
 
     private static String getDataFilePath() {
         // 파일명 분리
-        final URL configUrl = EmpMain.class.getResource("/emp.properties");
+        final URL config = EmpMain.class.getResource("/emp.properties");
         Properties properties = new Properties();
         try {
-            properties.load(configUrl.openStream());
+            properties.load(config.openStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        String fileLocation = properties.getProperty("file-location");
         String fileName = properties.getProperty("file-name");
-
-        final URL resourceUrl = EmpMain.class.getResource(fileName);
-        System.out.println("1: " + resourceUrl);
-        try {
-            System.out.println("2: " + Paths.get(resourceUrl.toURI()).toAbsolutePath().toString());
-            return Paths.get(resourceUrl.toURI()).toAbsolutePath().toString();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-        return null;
+        return fileLocation + File.separator + fileName;
     }
 }
