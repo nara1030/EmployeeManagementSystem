@@ -19,5 +19,6 @@ public class EmpDestroy {
                 .forEach(employee -> {
                     printable.printEmp(employee);
                 });
+        System.out.println("파일 저장 완료");
     }
 }

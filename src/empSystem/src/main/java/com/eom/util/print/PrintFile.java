@@ -8,14 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class PrintFile implements Printable {
-    // 설정 파일 분리 필요
-    // 상수 but 변경 가능성 방지(∴ private)
-    private static final String FILE_PATH = "C:\\Users\\NT930QAA\\workspace-employeeManagement\\EmployeeManagementSystem\\emp.txt";
-
     private final BufferedWriter writer;
 
-    public PrintFile() throws IOException {
-        writer = new BufferedWriter(new FileWriter(FILE_PATH, false));
+    public PrintFile(String filePath) throws IOException {
+        writer = new BufferedWriter(new FileWriter(filePath, false));
     }
 
     @Override
