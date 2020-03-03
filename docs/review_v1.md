@@ -10,12 +10,13 @@
 	* 이는 Employee가 외부 세계에 필요 이상으로 열려 있음을 의미
 	* 또한 파일 출력 메소드의 이름이 왜 storeEmp인가?(콘솔 출력 메소드의 경우 printEmp)
 2. EmpInit 클래스는 자바 6 버전 스타일의 코드(try catch finally)
-3. 대부분의 클래스가 static 메소드(∵ static field)로 구현 → Singleton 대체
+3. 대부분의 클래스가 static 메소드(∵ static field)로 구현 → [Singleton 대체](https://github.com/nara1030/ThisIsJava/blob/master/docs/etc/static_vs_singleton.md)
 	* 객체지향보다 절차지향적으로 구현되었음을 의미
 		* 다형성 등 객체지향이 가지는 변경의 유연성 없음
 	* 만약 static으로 사용 시, ArrayList보다 CopyOnWriteArrayList 권장
 	* Singleton 관련 생각
-		1. instance 메소드 내부 사용 가능 이유
+		1. ~~instance 메소드 내부 사용 가능 이유~~  
+		   → 인스턴스 메서드는 static 멤버 모두 사용 가능([static 메소드의 제약 조건](https://gmlwjd9405.github.io/2018/08/04/java-static.html))
 		2. final 선언
 4. ReadFile(Readable 인터페이스 구현체) 클래스에서 구체적인 파일 경로(`FILE_PATH`) 의존성 제거
 	* 처음엔 설정 파일로 파일 경로를 분리하려고 했으나 실패한 후 파일 경로에 직접적으로 의존하는 클래스(ex. TxTResource)를 만들어 해결 시도
