@@ -83,6 +83,7 @@
 	* https://www.popit.kr/java8-stream%EC%9D%80-loop%EA%B0%80-%EC%95%84%EB%8B%88%EB%8B%A4/
 	* https://homoefficio.github.io/2016/06/26/for-loop-%EB%A5%BC-Stream-forEach-%EB%A1%9C-%EB%B0%94%EA%BE%B8%EC%A7%80-%EB%A7%90%EC%95%84%EC%95%BC-%ED%95%A0-3%EA%B0%80%EC%A7%80-%EC%9D%B4%EC%9C%A0/
 	* https://hamait.tistory.com/547
+	* [최대/최소 구하기: Loop/Collections/Stream](https://www.daleseo.com/java-min-max/)
 * 프로퍼티 파일
 	* 변경 시 컴파일 불필요
 	* 윈도우 ini 파일과 같은 기능
@@ -90,11 +91,16 @@
 	* https://javacan.tistory.com/entry/4
 	* https://sthyun.tistory.com/entry/java%EC%97%90%EC%84%9C-property%ED%8C%8C%EC%9D%BC-%EC%89%BD%EA%B2%8C-%EC%B0%BE%EA%B8%B0-ClassLoader
 	* 파일경로로 파일 식별하는 것에 대한 고민
-* [자바 버전 업데이트](https://github.com/HomoEfficio/dev-tips/blob/master/IntelliJ%20-%20Gradle%EC%9D%98%20%EC%9E%90%EB%B0%94%20%EB%B2%84%EC%A0%84%20%EC%84%A4%EC%A0%95.md): 8 → 11(`List.of()`)
-	* [Java List - List in Java](https://www.journaldev.com/11444/java-list)
-	* [Java 11 - Convert Collection to Array](https://www.dariawan.com/tutorials/java/java-11-convert-collection-array/)
-	* [Java 11 Tutorial](https://winterbe.com/posts/2018/09/24/java-11-tutorial/)
-	* [From Java 8 to Java 11](https://codete.com/blog/java-8-java-11-quick-guide/)
+* 자바 버전 업데이트: 8 → 11
+	* [IDE 설정](https://github.com/HomoEfficio/dev-tips/blob/master/IntelliJ%20-%20Gradle%EC%9D%98%20%EC%9E%90%EB%B0%94%20%EB%B2%84%EC%A0%84%20%EC%84%A4%EC%A0%95.md)
+	* Java 9
+		* [Java 9의 불변 컬렉션 생성](https://www.daleseo.com/java9-immutable-collections/)
+		* [What is the difference between List.of and Arrays.asList?](https://stackoverflow.com/questions/46579074/what-is-the-difference-between-list-of-and-arrays-aslist)
+		* [Java List - List in Java](https://www.journaldev.com/11444/java-list)
+	* Java 11
+		* [Java 11 Tutorial](https://winterbe.com/posts/2018/09/24/java-11-tutorial/)
+		* [From Java 8 to Java 11](https://codete.com/blog/java-8-java-11-quick-guide/)
+		* [Big things in JDK 11](https://meetup.toast.com/posts/171)
 
 - - -
 
