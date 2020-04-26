@@ -66,6 +66,8 @@
 	2. 메소드를 적절히 추출하여 메뉴를 단순하게 고쳐라
 	3. 변수를 선언하는 곳과 사용하는 곳의 거리를 좁혀라
 	4. 메뉴의 표현을 분리하라
+		* 자바 enum ≠ 타 언어의 enum  
+		(이펙티브 자바 3판 참고)
 
 ##### [목차로 이동](#목차)
 
@@ -100,8 +102,6 @@
 		* [Java 11 Tutorial](https://winterbe.com/posts/2018/09/24/java-11-tutorial/)
 		* [From Java 8 to Java 11](https://codete.com/blog/java-8-java-11-quick-guide/)
 		* [Big things in JDK 11](https://meetup.toast.com/posts/171)
-* 자바 enum ≠ 타 언어의 enum
-	* 이펙티브 자바 3판 참고
 
 - - -
 * 프로젝트 시작 시 메뉴 두 번 넣어야 동작
