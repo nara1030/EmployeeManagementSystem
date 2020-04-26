@@ -6,21 +6,23 @@
 3. [참고](#참고)
 
 ## 피드백
-1. 논리적으로 Employee가 콘솔과 출력을 알아야 하는 이유 없음(Employee에 에 콘솔 출력 및 파일 출력 메소드 존재)
-	* 이는 Employee가 외부 세계에 필요 이상으로 열려 있음을 의미
+1. 논리적으로 Employee가 콘솔과 출력을 알아야 하는 이유 없음  
+(초기 Employee 클래스에 콘솔 출력 및 파일 출력 메소드 존재)
+	* 이는 Employee가 외부 세계에 필요 이상으로 열려 있음을 의미  
+	(만약 또다른 출력 기능이 추가된다면 Employee 클래스가 더 무거워짐)
 	* 또한 파일 출력 메소드의 이름이 왜 storeEmp인가?(콘솔 출력 메소드의 경우 printEmp)
 2. EmpInit 클래스는 자바 6 버전 스타일의 코드(try catch finally)
-3. 대부분의 클래스가 static 메소드(∵ static field)로 구현 → [Singleton 대체](https://github.com/nara1030/ThisIsJava/blob/master/docs/etc/static_vs_singleton.md)
+3. 대부분의 메소드가 static으로 구현  
+(∵ static field의 사용을 위해) → [Singleton 대체]
 	* 객체지향보다 절차지향적으로 구현되었음을 의미
 		* 다형성 등 객체지향이 가지는 변경의 유연성 없음
 	* 만약 static으로 사용 시, ArrayList보다 CopyOnWriteArrayList 권장
-	* Singleton 관련 생각
-		1. ~~instance 메소드 내부 사용 가능 이유~~  
-		   → 인스턴스 메서드는 static 멤버 모두 사용 가능([static 메소드의 제약 조건](https://gmlwjd9405.github.io/2018/08/04/java-static.html))
-		2. final 선언
+	* 추후 싱글톤 대체
+		1. [static vs. Singleton](https://github.com/nara1030/ThisIsJava/blob/master/docs/etc/static_vs_singleton.md)
+		2. [인스턴스 메서드는 static 멤버 모두 사용 가능](https://gmlwjd9405.github.io/2018/08/04/java-static.html)
 4. ReadFile(Readable 인터페이스 구현체) 클래스에서 구체적인 파일 경로(`FILE_PATH`) 의존성 제거
-	* 처음엔 설정 파일로 파일 경로를 분리하려고 했으나 실패한 후 파일 경로에 직접적으로 의존하는 클래스(ex. TxTResource)를 만들어 해결 시도
-	* 조언 받은 것은 변수를 메소드를 통해 제거함으로써 의존성 제거(→ 메소드가 파일명 알고 있으므로 더 개선 가능)  
+	* 선언된 변수를 메소드의 매개변수를 통해 받으며 의존성 제거  
+	(아직 메소드가 파일명 알고 있으므로 더 개선 가능)  
 		```java
 		public class ReadFile implements Readable {
 			/** 
@@ -35,31 +37,30 @@
 			 }
 		}
 		```
-	* 파일 경로 구하는 메소드 위치는 ReadFile일 필요 없음(∵ PrintFile)
-		* https://whitecold89.tistory.com/9
-		* https://devyongsik.tistory.com/171
-		* https://unabated.tistory.com/entry/ClassgetResource-vs-ClassLoadergetResource
-		* [How to Load Resources from Classpath in Java with Example](https://javarevisited.blogspot.com/2014/07/how-to-load-resources-from-classpath-in-java-example.html)
-		* [open resource with relative path in java](https://stackoverflow.com/questions/573679/open-resource-with-relative-path-in-java)
-		* [Java Properties file examples](https://mkyong.com/java/java-properties-file-examples/)
-		* 추후
-			1. 어디다 메소드 배치할지에 대한 고민
-			2. 메소드가 직접 파일명 의존하는 부분 → 프로퍼티 파일 이용 분리
-			3. getResource() 반환 결과에 대한 의문 → 프로젝트 내부에 데이터 파일 위치시키는 것 비권장  
-				```java
-				/*
-				 * EmpMain: empSystem/src/main/java/com/eom/EmpMain
-				 */
-				System.out.println(EmpMain.class.getResource(""));
-				// → file:/C:/Users/NT930QAA/IdeaProjects/empSystem/build/classes/java/main/com/eom/
-				System.out.println(EmpMain.class.getResource("/"));
-				// → file:/C:/Users/NT930QAA/IdeaProjects/empSystem/build/classes/java/main/
-				final URL resource = EmpMain.class.getResource("/emp.txt");	// resources/emp.txt
-				System.out.println(Paths.get(resource.toURI()).toAbsolutePath().toString());
-				// → C:\Users\NT930QAA\IdeaProjects\empSystem\build\resources\main\emp.txt
-				// 읽어들어야 되는 경로(C:\Users\NT930QAA\IdeaProjects\empSystem\src\main\resources\emp.txt)와
-				// 다름에도 불구하고 왜 제대로 읽히지?(출력은 예상대로 안 됨)
-				```
+	* 파일 주소는 설정 파일로 분리
+		* 프로젝트 밖에 데이터 파일을 위치  
+		(∵ 자바 런타임 실행 위치 ≠ 소스코드 위치)
+		* 자바 실행 시 커맨드 라인 옵션으로 파일 주소 추가하는 방식 권장
+		* classpath에서 resource 찾기: Class.getResource vs. ClassLoader.getResource
+			* [1](https://whitecold89.tistory.com/9)
+			* [2](https://devyongsik.tistory.com/171)
+			* [3](https://unabated.tistory.com/entry/ClassgetResource-vs-ClassLoadergetResource)
+			* [4](https://sthyun.tistory.com/entry/java%EC%97%90%EC%84%9C-property%ED%8C%8C%EC%9D%BC-%EC%89%BD%EA%B2%8C-%EC%B0%BE%EA%B8%B0-ClassLoader)
+		* 기타  
+			```java
+			/*
+			 * EmpMain: empSystem/src/main/java/com/eom/EmpMain
+			 */
+			System.out.println(EmpMain.class.getResource(""));
+			// → file:/C:/Users/NT930QAA/IdeaProjects/empSystem/build/classes/java/main/com/eom/
+			System.out.println(EmpMain.class.getResource("/"));
+			// → file:/C:/Users/NT930QAA/IdeaProjects/empSystem/build/classes/java/main/
+			final URL resource = EmpMain.class.getResource("/emp.txt");	// resources/emp.txt
+			System.out.println(Paths.get(resource.toURI()).toAbsolutePath().toString());
+			// → C:\Users\NT930QAA\IdeaProjects\empSystem\build\resources\main\emp.txt
+			// 읽어들어야 되는 경로(C:\Users\NT930QAA\IdeaProjects\empSystem\src\main\resources\emp.txt)와
+			// 다름에도 불구하고 왜 제대로 읽히지?(출력은 예상대로 안 됨)
+			```
 5. [To be continued](https://github.com/johngrib/EmployeeManagementSystem/pulls)
 	1. 데이터 파일 경로를 ReadFile에서 분리하라
 	2. 메소드를 적절히 추출하여 메뉴를 단순하게 고쳐라
@@ -80,17 +81,15 @@
 		* 초기화 시 public 고민(∵ 외부 공개 불필요)
 	* 생성자 오버라이딩 불가?
 * 스트림 ≠ Loop
-	* https://www.popit.kr/java8-stream%EC%9D%80-loop%EA%B0%80-%EC%95%84%EB%8B%88%EB%8B%A4/
-	* https://homoefficio.github.io/2016/06/26/for-loop-%EB%A5%BC-Stream-forEach-%EB%A1%9C-%EB%B0%94%EA%BE%B8%EC%A7%80-%EB%A7%90%EC%95%84%EC%95%BC-%ED%95%A0-3%EA%B0%80%EC%A7%80-%EC%9D%B4%EC%9C%A0/
-	* https://hamait.tistory.com/547
+	* [1](https://www.popit.kr/java8-stream%EC%9D%80-loop%EA%B0%80-%EC%95%84%EB%8B%88%EB%8B%A4/)
+	* [2](https://homoefficio.github.io/2016/06/26/for-loop-%EB%A5%BC-Stream-forEach-%EB%A1%9C-%EB%B0%94%EA%BE%B8%EC%A7%80-%EB%A7%90%EC%95%84%EC%95%BC-%ED%95%A0-3%EA%B0%80%EC%A7%80-%EC%9D%B4%EC%9C%A0/)
+	* [3](https://hamait.tistory.com/547)
 	* [최대/최소 구하기: Loop/Collections/Stream](https://www.daleseo.com/java-min-max/)
 * 프로퍼티 파일
 	* 변경 시 컴파일 불필요
 	* 윈도우 ini 파일과 같은 기능
 	* https://okky.kr/article/38761
 	* https://javacan.tistory.com/entry/4
-	* https://sthyun.tistory.com/entry/java%EC%97%90%EC%84%9C-property%ED%8C%8C%EC%9D%BC-%EC%89%BD%EA%B2%8C-%EC%B0%BE%EA%B8%B0-ClassLoader
-	* 파일경로로 파일 식별하는 것에 대한 고민
 * 자바 버전 업데이트: 8 → 11
 	* [IDE 설정](https://github.com/HomoEfficio/dev-tips/blob/master/IntelliJ%20-%20Gradle%EC%9D%98%20%EC%9E%90%EB%B0%94%20%EB%B2%84%EC%A0%84%20%EC%84%A4%EC%A0%95.md)
 	* Java 9
@@ -101,11 +100,10 @@
 		* [Java 11 Tutorial](https://winterbe.com/posts/2018/09/24/java-11-tutorial/)
 		* [From Java 8 to Java 11](https://codete.com/blog/java-8-java-11-quick-guide/)
 		* [Big things in JDK 11](https://meetup.toast.com/posts/171)
-
-- - -
-
 * 자바 enum ≠ 타 언어의 enum
 	* 이펙티브 자바 3판 참고
+
+- - -
 * 프로젝트 시작 시 메뉴 두 번 넣어야 동작
 * 파일 존재 안할 시 에러 발생 → Optional
 * 로그 출력
